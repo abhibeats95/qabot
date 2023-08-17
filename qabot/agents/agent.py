@@ -22,7 +22,8 @@ def create_agent_executor(
         verbose=False,
         model_name='gpt-3.5-turbo',
         allow_human_clarification=False,
-        allow_wikidata=True,
+        allow_wikidata=False,
+
 ):
 
 

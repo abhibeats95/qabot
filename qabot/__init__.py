@@ -10,10 +10,10 @@ def ask_wikidata(query: str, verbose=False):
     return result['output']
 
 
-def ask_file(query: str, filename: Optional[str], verbose=False):
+def ask_file(query: str, filename: Optional[str], verbose=True):
     engine = create_duckdb()
     database_engine, executed_sql = import_into_duckdb_from_files(engine, [filename])
-    agent = create_agent_executor(
+    agent = create_agent_executor(return_intermediate_steps=True,
         database_engine=database_engine,
         verbose=verbose
     )

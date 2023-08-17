@@ -45,6 +45,7 @@ def import_into_duckdb_from_files(duckdb_connection: duckdb.DuckDBPyConnection, 
 
         if file_path.startswith("postgresql://"):
             duckdb_connection.execute(f"CALL postgres_attach('{file_path}')")
+            print('file_path', file_path)
         else:
             executed_sql.append(load_external_data_into_db(duckdb_connection, file_path))
 

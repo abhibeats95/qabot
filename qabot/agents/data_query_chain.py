@@ -211,8 +211,11 @@ class CustomPromptTemplate(BaseChatPromptTemplate):
         else:
             thoughts = ""
         for action, observation in intermediate_steps:
+
             thoughts += action.log
             thoughts += f"\nObservation: {observation}\nThought: "
+            print('Action',action)
+
 
         # Set the agent_scratchpad variable to that value
         kwargs["agent_scratchpad"] = thoughts
